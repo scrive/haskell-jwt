@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                jwt
-version:             0.11.0
+version:             0.12.0
 synopsis:            JSON Web Token (JWT) decoding and encoding
 license:             MIT
 license-file:        LICENSE
@@ -40,7 +40,6 @@ library
   other-modules:       Data.Text.Extended, Data.ByteString.Extended
   build-depends:       base >= 4.8 && < 5
                      , cryptostore              >= 0.3.0.1
-                     , memory                   >= 0.8
                      , bytestring               >= 0.10
                      , text                     >= 0.11
                      , aeson                    >= 0.7
@@ -53,11 +52,13 @@ library
                      , semigroups               >= 0.15.4
                      , network-uri
   if flag(use_crypton)
-    build-depends:     crypton >= 0.31
+    build-depends:     crypton >= 1.1
+                     , ram
                      , crypton-x509
                      , crypton-x509-store
   else
     build-depends:     cryptonite >= 0.6
+                     , memory
                      , x509
                      , x509-store
 
