@@ -40,7 +40,6 @@ library
   other-modules:       Data.Text.Extended, Data.ByteString.Extended
   build-depends:       base >= 4.8 && < 5
                      , cryptostore              >= 0.5.0.0 && < 0.6
-                     , memory                   >= 0.8     && < 0.19
                      , bytestring               >= 0.10    && < 0.13
                      , text                     >= 0.11    && < 2.2
                      , aeson                    >= 2       && < 2.4
@@ -53,11 +52,13 @@ library
                      , semigroups               >= 0.15.4  && < 0.21
                      , network-uri              >= 2.6     && < 2.7
   if flag(use_crypton)
-    build-depends:     crypton >= 0.31 && < 2.2
+    build-depends:     crypton >= 1.1
+                     , ram >= 0.22
                      , crypton-x509             < 1.10
                      , crypton-x509-store       < 1.10
   else
     build-depends:     cryptonite >= 0.6 && < 0.31
+                     , memory                   >= 0.8     && < 0.19
                      , x509                     < 1.8
                      , x509-store               < 1.7
 
